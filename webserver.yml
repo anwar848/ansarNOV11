@@ -1,8 +1,28 @@
 ---
-- hosts: 172.31.6.191
+- hosts: webserver
   become: yes
   tasks:
   - name: install webserver
     apt:
       name: apache2
+      state: present
+  
+  - name: start webserver
+    service:
+      name: apache22
+      state: started
+  
+  - name: install git
+    apt:
+     name: git
+     state: present
+    
+  - name: install tree
+    apt:
+     name: tree
+     state: present
+
+  - name: install wget
+    apt:
+      name: wget
       state: present
